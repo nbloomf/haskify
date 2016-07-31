@@ -1,0 +1,18 @@
+Abandoned checkouts
+CustomerSavedSearch
+Discount
+Event
+Fulfillment
+FulfillmentEvent
+Gift Card
+Multipass
+Order
+Order Risks
+RecurringApplicationCharge
+Refund
+Shipping Zone
+Shop
+TaxService
+User
+Webhook
+ShopifyQL

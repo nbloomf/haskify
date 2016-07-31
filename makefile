@@ -91,7 +91,4 @@ gen: FORCE
 	rm temp/ValueImport.txt
 	rm temp/OptImport.txt
 
-test: FORCE
-	haskify-test /home/nathan/haskify.cred/test
-
 FORCE:

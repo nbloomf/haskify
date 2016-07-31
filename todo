@@ -1,0 +1,11 @@
+* Remove float for fixed point in tax fields
+* complete the data schema
+* implement more endpoints/tests
+* generate endpoints (need more examples first)
+* in monad: rate limiting, retry? (<2 requests per second)
+* server for webhooks
+* FromJSON for singletons should fail if extra keys are present
+* "ShopifyObject" typeclass? would this be useful?
+* helper function to get random/unique numbers in HaskifyM for use in testing
+* don't need ToURL class
+* Make HaskifyM a generic REST/HTTP client monad?
