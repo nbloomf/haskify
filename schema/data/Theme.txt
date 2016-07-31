@@ -1,0 +1,7 @@
+created_at  :DateTime:CreatedAt
+id          :IDNumber:ID
+name        :Text:Name
+role        :ThemeRole:ThemeRole
+updated_at  :DateTime:UpdatedAt
+previewable :Bool:Previewable
+processing  :Bool:Processing

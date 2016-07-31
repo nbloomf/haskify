@@ -1,0 +1,17 @@
+body_html                     :Text:BodyHTML
+created_at                    :DateTime:CreatedAt
+handle                        :Text:Handle
+id                            :IDNumber:ID
+images                        :[ProductImage]:ProductImages
+options                       :[Object]:Options
+product_type                  :Text:ProductType
+published_at                  :DateTime:PublishedAt
+published_scope               :PublishedScope:PublishedScope
+tags                          :Text:Tags
+template_suffix               :Text:TemplateSuffix
+title                         :Text:Title
+metafields_global_title       :Text:MetafieldsGlobalTitle
+metafields_global_description :Text:MetafieldsGlobalDescription
+updated_at                    :DateTime:UpdatedAt
+variants                      :[ProductVariant]:ProductVariants
+vendor                        :Text:Vendor

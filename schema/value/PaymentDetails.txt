@@ -1,0 +1,5 @@
+AVSResultCode:avs_result_code
+CreditCardBIN:credit_card_bin
+CreditCardCompany:credit_card_company
+CreditCardNumber:credit_card_number
+CCVResultCode:ccv_result_code

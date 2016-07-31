@@ -1,0 +1,11 @@
+limit            :Int
+page             :Int
+since_id         :IDNumber
+created_at_min   :DateTime
+created_at_max   :DateTime
+updated_at_min   :DateTime
+updated_at_max   :DateTime
+published_at_min :DateTime
+published_at_max :DateTime
+published_status :PublishedStatus
+fields           :Text

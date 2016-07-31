@@ -1,0 +1,6 @@
+service_name      :Text:ServiceName
+service_code      :Text:ServiceCode
+total_price       :Text:TotalPrice
+currency          :Text:Currency
+min_delivery_date :DateTime:MinDeliveryDate
+max_delivery_date :DateTime:MaxDeliveryDate

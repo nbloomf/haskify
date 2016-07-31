@@ -1,0 +1,5 @@
+Confirmed:confirmed
+InTransit:in_transit
+OutForDelivery:out_for_delivery
+Delivered:delivered
+Failure:failure

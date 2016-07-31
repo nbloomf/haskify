@@ -1,0 +1,9 @@
+name                :Text:Name
+sku                 :Text:SKU
+quantity            :Int:Quantity
+grams               :Int:Grams
+price               :Int:PriceInt
+vendor              :Text:Vendor
+requires_shipping   :Bool:RequiresShipping
+taxable             :Bool:Taxable
+fulfillment_service :Text:FulfillmentServiceHandle

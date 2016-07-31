@@ -1,0 +1,10 @@
+commentable         :Commentable:Commentable
+created_at          :DateTime:CreatedAt
+feedburner          :Text:Feedburner
+feedburner_location :Text:FeedburnerLocation
+handle              :Text:Handle
+id                  :IDNumber:ID
+tags                :Text:Tags
+template_suffix     :Text:TemplateSuffix
+title               :Text:Title
+updated_at          :DateTime:UpdatedAt

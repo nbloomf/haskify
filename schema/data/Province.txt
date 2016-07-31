@@ -1,0 +1,9 @@
+code             :Text:Code
+country_id       :IDNumber:CountryID
+id               :IDNumber:ID
+name             :Text:Name
+shipping_zone_id :IDNumber:ShippingZoneID
+tax              :Float:Tax
+tax_name         :Text:TaxName
+tax_type         :Text:TaxType
+tax_percentage   :Float:TaxPercentage

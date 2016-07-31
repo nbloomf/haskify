@@ -1,0 +1,10 @@
+limit          :Int
+since_id       :IDNumber
+created_at_min :DateTime
+created_at_max :DateTime
+updated_at_min :DateTime
+updated_at_max :DateTime
+namespace      :Text
+key            :Text
+value_type     :ValueType
+fields         :Text

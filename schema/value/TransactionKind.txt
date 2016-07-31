@@ -1,0 +1,5 @@
+Authorization:authorization
+Capture:capture
+Sale:sale
+Void:void
+Refund:refund

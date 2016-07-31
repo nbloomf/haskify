@@ -1,0 +1,3 @@
+src        :Text:Src
+attachment :Text:Attachment
+created_at :DateTime:CreatedAt

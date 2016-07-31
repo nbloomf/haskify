@@ -1,0 +1,10 @@
+author          :Text:Author
+body_html       :Text:BodyHTML
+created_at      :DateTime:CreatedAt
+handle          :Text:Handle
+id              :IDNumber:ID
+published_at    :DateTime:PublishedAt
+shop_id         :IDNumber:ShopID
+template_suffix :Text:TemplateSuffix
+title           :Text:Title
+updated_at      :DateTime:UpdatedAt

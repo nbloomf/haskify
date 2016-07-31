@@ -1,0 +1,6 @@
+created_at    :DateTime:CreatedAt
+event         :DOMEvent:DOMEvent
+id            :IDNumber:ID
+src           :Text:Src
+display_scope :DisplayScope:DisplayScope
+updated_at    :DateTime:UpdatedAt

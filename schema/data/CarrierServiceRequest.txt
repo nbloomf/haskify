@@ -1,0 +1,4 @@
+origin      :CarrierServiceLocation:Origin
+destination :CarrierServiceLocation:Destination
+items       :[CarrierServiceItem]:CarrierServiceItems
+currency    :Text:Currency

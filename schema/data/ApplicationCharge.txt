@@ -1,0 +1,9 @@
+confirmation_url :Text:ConfirmationURL
+created_at       :DateTime:CreatedAt
+id               :IDNumber:ID
+name             :Text:Name
+price            :Text:Price
+return_url       :Text:ReturnURL
+status           :ApplicationChargeStatus:ApplicationChargeStatus
+test             :ApplicationChargeTest:ApplicationChargeTest
+updated_at       :DateTime:UpdatedAt

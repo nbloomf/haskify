@@ -1,0 +1,12 @@
+IncorrectNumber:incorrect_number
+InvalidNumber:invalid_number
+InvalidExpiryDate:invalid_expiry_date
+InvalidCVC:invalid_cvc
+ExpiredCard:expired_card
+IncorrectCVC:incorrect_cvc
+IncorrectZip:incorrect_zip
+IncorrectAddress:incorrect_address
+CardDeclined:card_declined
+ProcessingError:processing_error
+CallIssuer:call_issuer
+PickUpCard:pick_up_card

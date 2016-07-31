@@ -1,0 +1,8 @@
+callback_url             :Text:CallbackURL
+format                   :Format:Format
+handle                   :Text:Handle
+inventory_management     :InventoryManagement:InventoryManagement
+name                     :Text:Name
+provider_id              :IDNumber:ProviderID
+requires_shipping_method :Bool:RequiresShippingMethod
+tracking_support         :Bool:TrackingSupport

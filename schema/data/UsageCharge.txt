@@ -1,0 +1,6 @@
+created_at                      :DateTime:CreatedAt
+description                     :Text:Description
+id                              :IDNumber:ID
+price                           :Text:Price
+recurring_application_charge_id :IDNumber:RecurringApplicationChargeID
+updated_at                      :DateTime:UpdatedAt

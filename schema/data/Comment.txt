@@ -1,0 +1,13 @@
+article_id   :IDNumber:ArticleID
+author       :Text:Author
+blog_id      :IDNumber:BlogID
+body         :Text:Body
+body_html    :Text:BodyHTML
+created_at   :DateTime:CreatedAt
+email        :Text:Email
+id           :IDNumber:ID
+ip           :Text:IP
+published_at :DateTime:PublishedAt
+status       :Text:Status
+updated_at   :DateTime:UpdatedAt
+user_agent   :Text:UserAgent

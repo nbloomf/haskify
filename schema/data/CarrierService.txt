@@ -1,0 +1,7 @@
+active               :Bool:Active
+callback_url         :Text:CallbackURL
+carrier_service_type :CarrierServiceType:CarrierServiceType
+format               :Format:Format
+id                   :IDNumber:ID
+name                 :Text:Name
+service_discovery    :Bool:ServiceDiscovery

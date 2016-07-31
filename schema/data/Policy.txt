@@ -1,0 +1,5 @@
+title      :Text:Title
+body       :Text:Body
+created_at :DateTime:CreatedAt
+updated_at :DateTime:UpdatedAt
+url        :Text:URL

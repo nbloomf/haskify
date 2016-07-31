@@ -1,0 +1,8 @@
+GreaterThan:greater_than
+LessThan:less_than
+Equals:equals
+NotEquals:not_equals
+StartsWith:starts_with
+EndsWith:ends_with
+Contains:contains
+NotContains:not-contains

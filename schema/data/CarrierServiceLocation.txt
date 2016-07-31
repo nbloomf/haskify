@@ -1,0 +1,12 @@
+country      :Text:CountryName
+postal_code  :Text:PostalCode
+province     :Text:ProvinceName
+city         :Text:City
+name         :Text:Name
+address1     :Text:Address1
+address2     :Text:Address2
+address3     :Text:Address3
+phone        :Text:Phone
+fax          :Text:Fax
+address_type :Text:AddressType
+company_name :Text:CompanyName

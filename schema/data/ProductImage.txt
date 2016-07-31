@@ -1,0 +1,7 @@
+created_at  :DateTime:CreatedAt
+id          :IDNumber:ID
+position    :Int:Position
+product_id  :IDNumber:ProductID
+variant_ids :[IDNumber]:VariantIDs
+src         :Text:Src
+updated_at  :DateTime:UpdatedAt

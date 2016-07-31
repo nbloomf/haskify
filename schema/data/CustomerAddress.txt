@@ -1,0 +1,14 @@
+address1      :Text:Address1
+address2      :Text:Address2
+city          :Text:City
+company       :Text:Company
+first_name    :Text:FirstName
+last_name     :Text:LastName
+phone         :Text:Phone
+province      :Text:ProvinceName
+country       :Text:CountryText
+zip           :Text:Zip
+name          :Text:Name
+province_code :Text:ProvinceCode
+country_code  :Text:CountryCode
+country_name  :Text:CountryName

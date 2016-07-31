@@ -1,0 +1,11 @@
+id         :IDNumber:ID
+name       :Text:Name
+address1   :Text:Address1
+address2   :Text:Address2
+zip        :Text:Zip
+city       :Text:City
+province   :Text:ProvinceName
+country    :Text:CountryText
+phone      :Text:Phone
+created_at :DateTime:CreatedAt
+updated_at :DateTime:UpdatedAt

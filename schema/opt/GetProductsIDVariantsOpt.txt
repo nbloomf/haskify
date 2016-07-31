@@ -1,0 +1,4 @@
+limit    :Int
+page     :Int
+since_id :IDNumber
+fields   :Text

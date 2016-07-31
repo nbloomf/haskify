@@ -1,0 +1,8 @@
+AlphaAsc:alpha-asc
+AlphaDesc:alpha-desc
+BestSelling:best-selling
+Created:created
+CreatedDesc:created-desc
+Manual:manual
+PriceAsc:price-asc
+PriceDesc:price-desc

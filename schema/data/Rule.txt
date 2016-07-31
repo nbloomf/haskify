@@ -1,0 +1,3 @@
+column    :Column:Column
+relation  :Relation:Relation
+condition :Text:Condition

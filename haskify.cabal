@@ -1,0 +1,162 @@
+name:                haskify
+version:             0.0.0.0
+description:         haskell client library
+                     for the Shopify API
+license:             GPL3
+license-file:        LICENSE.txt
+author:              Nathan Bloomfield
+maintainer:          nbloomf@gmail.com
+copyright:           Nathan Bloomfield
+build-type:          Simple
+cabal-version:       >=1.10
+
+
+
+executable haskify-test
+  main-is: Main.hs
+
+  hs-source-dirs: test/
+
+  build-depends:
+    base == 4.7.0.2,
+    haskify == 0.0.0.0,
+    transformers == 0.5.2.0,
+    text == 1.2.2.1,
+    http-client == 0.4.30
+
+  default-language: Haskell2010
+
+
+
+executable shopify-post-product
+  main-is: Main.hs
+
+  hs-source-dirs: ex/post-product
+
+  build-depends:
+    base == 4.7.0.2,
+    haskify == 0.0.0.0,
+    transformers == 0.5.2.0,
+    text == 1.2.2.1,
+    bytestring == 0.10.8.1,
+    http-client == 0.4.30
+
+  default-language: Haskell2010
+
+
+
+executable shopify-get-skus
+  main-is: Main.hs
+
+  hs-source-dirs: ex/get-skus
+
+  build-depends:
+    base == 4.7.0.2,
+    haskify == 0.0.0.0,
+    transformers == 0.5.2.0,
+    text == 1.2.2.1,
+    bytestring == 0.10.8.1,
+    http-client == 0.4.30
+
+  default-language: Haskell2010
+
+
+
+library
+  exposed-modules: Haskify
+
+  build-depends:
+    base == 4.7.0.2,
+    bytestring == 0.10.8.1,
+    text == 1.2.2.1,
+    time == 1.4.2,
+    aeson == 0.11.2.0,
+    directory == 1.2.6.3,
+    lens == 4.14,
+    http-types == 0.9.1,
+    transformers == 0.5.2.0,
+    wreq == 0.4.1.0,
+    http-client == 0.4.30
+
+  hs-source-dirs: src/
+
+  default-language: Haskell2010
+
+  other-modules:
+    Haskify.HaskifyM
+    Haskify.Types
+    Haskify.Singleton
+    Haskify.DataFields
+    Haskify.Endpoint
+    Haskify.Endpoint.Blog
+    Haskify.Endpoint.Metafield
+    Haskify.Endpoint.Product
+    Haskify.Endpoint.ProductVariant
+    Haskify.Data
+    Haskify.Data.ApplicationCharge
+    Haskify.Data.Article
+    Haskify.Data.Asset
+    Haskify.Data.Blog
+    Haskify.Data.CarrierService
+    Haskify.Data.CarrierServiceItem
+    Haskify.Data.CarrierServiceLocation
+    Haskify.Data.CarrierServiceRate
+    Haskify.Data.CarrierServiceRequest
+    Haskify.Data.Collect
+    Haskify.Data.Comment
+    Haskify.Data.Country
+    Haskify.Data.CustomCollection
+    Haskify.Data.Customer
+    Haskify.Data.CustomerAddress
+    Haskify.Data.FulfillmentService
+    Haskify.Data.Image
+    Haskify.Data.Location
+    Haskify.Data.Metafield
+    Haskify.Data.Page
+    Haskify.Data.Product
+    Haskify.Data.ProductImage
+    Haskify.Data.ProductVariant
+    Haskify.Data.Province
+    Haskify.Data.Policy
+    Haskify.Data.Redirect
+    Haskify.Data.Rule
+    Haskify.Data.ScriptTag
+    Haskify.Data.SmartCollection
+    Haskify.Data.Theme
+    Haskify.Data.Transaction
+    Haskify.Data.UsageCharge
+    Haskify.Opt
+    Haskify.Opt.GetBlogsIDArticlesCountOpt
+    Haskify.Opt.GetBlogsIDArticlesOpt
+    Haskify.Opt.GetBlogsIDArticlesTagsOpt
+    Haskify.Opt.GetBlogsOpt
+    Haskify.Opt.GetMetafieldsOpt
+    Haskify.Opt.GetProductsCountOpt
+    Haskify.Opt.GetProductsIDOpt
+    Haskify.Opt.GetProductsOpt
+    Haskify.Opt.GetProductsIDVariantsOpt
+    Haskify.Value
+    Haskify.Value.ApplicationChargeStatus
+    Haskify.Value.ApplicationChargeTest
+    Haskify.Value.CarrierServiceType
+    Haskify.Value.Column
+    Haskify.Value.Commentable
+    Haskify.Value.CommentPolicy
+    Haskify.Value.CustomerState
+    Haskify.Value.DisplayScope
+    Haskify.Value.DOMEvent
+    Haskify.Value.Format
+    Haskify.Value.InventoryManagement
+    Haskify.Value.InventoryPolicy
+    Haskify.Value.PaymentDetails
+    Haskify.Value.PublishedScope
+    Haskify.Value.PublishedStatus
+    Haskify.Value.Relation
+    Haskify.Value.ShipmentStatus
+    Haskify.Value.SortOrder
+    Haskify.Value.ThemeRole
+    Haskify.Value.TransactionKind
+    Haskify.Value.TransactionErrorCode
+    Haskify.Value.TransactionReceipt
+    Haskify.Value.TransactionStatus
+    Haskify.Value.ValueType

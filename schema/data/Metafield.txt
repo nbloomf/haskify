@@ -1,0 +1,10 @@
+created_at     :DateTime:CreatedAt
+description    :Text:Description
+id             :IDNumber:ID
+key            :Text:Key
+namespace      :Text:Namespace
+owner_id       :IDNumber:OwnerID
+owner_resource :Text:OwnerResource
+value          :Text:Value
+value_type     :ValueType:ValueType
+updated_at     :DateTime:UpdatedAt

@@ -1,0 +1,14 @@
+author          :Text:Author
+blog_id         :IDNumber:BlogID
+body_html       :Text:BodyHTML
+created_at      :DateTime:CreatedAt
+id              :IDNumber:ID
+image           :Image:Image
+published       :Bool:Published
+published_at    :DateTime:PublishedAt
+summary_html    :Text:SummaryHTML
+tags            :Text:Tags
+template_suffix :Text:TemplateSuffix
+title           :Text:Title
+updated_at      :DateTime:UpdatedAt
+user_id         :IDNumber:UserID

@@ -1,0 +1,11 @@
+attachment   :Text:Attachment
+content_type :Text:ContentType
+created_at   :DateTime:CreatedAt
+key          :Text:Key
+public_url   :Text:PublicURL
+size         :Int:Size
+source_key   :Text:SourceKey
+src          :Text:Src
+theme_id     :IDNumber:ThemeID
+updated_at   :DateTime:UpdatedAt
+value        :Text:Value

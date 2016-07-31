@@ -1,0 +1,8 @@
+collection_id :IDNumber:CollectionID
+created_at    :DateTime:CreatedAt
+featured      :Bool:Featured
+id            :IDNumber:ID
+position      :Int:Position
+product_id    :IDNumber:ProductID
+sort_value    :Text:SortValue
+updated_at    :DateTime:UpdatedAt

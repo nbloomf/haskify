@@ -1,0 +1,16 @@
+amount          :Text:Amount
+authorization   :Text:Authorization
+created_at      :DateTime:CreatedAt
+device_id       :IDNumber:DeviceID
+gateway         :Text:Gateway
+source_name     :Text:SourceName
+payment_details :PaymentDetails:PaymentDetails
+id              :IDNumber:ID
+kind            :TransactionKind:TransactionKind
+order_id        :IDNumber:OrderID
+receipt         :TransactionReceipt:TransactionReceipt
+error_code      :TransactionErrorCode:TransactionErrorCode
+status          :TransactionStatus:TransactionStatus
+test            :Bool:Test
+user_id         :IDNumber:UserID
+currency        :Text:Currency

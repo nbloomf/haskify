@@ -1,0 +1,8 @@
+Title:title
+Type:type
+Vendor:vendor
+VariantPrice:variant_price
+VariantCompareAtPrice:variant_compare_at_price
+VariantWeight:variant_weight
+VariantInventory:variant_inventory
+VariantTitle:variant_title

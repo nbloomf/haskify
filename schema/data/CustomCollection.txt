@@ -1,0 +1,11 @@
+body_html       :Text:BodyHTML
+handle          :Text:Handle
+id              :IDNumber:ID
+image           :Image:Image
+published       :Bool:Published
+published_at    :DateTime:PublishedAt
+published_scope :PublishedScope:PublishedScope
+sort_order      :SortOrder:SortOrder
+template_suffix :Text:TemplateSuffix
+title           :Text:Title
+updated_at      :DateTime:UpdatedAt
