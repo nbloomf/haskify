@@ -25,3 +25,4 @@ Finally, all HTTP requests are logged and when a script is run it generates a "r
 Some small utility programs are included as examples.
 
 * ``shopify-post-product``: takes a list of files, each containing a single JSON-encoded product, and posts them to a given shop.
+* ``shopify-get-skus``: get a list of all product variants' SKUs.

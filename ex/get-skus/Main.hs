@@ -8,6 +8,11 @@ import Control.Monad.IO.Class (liftIO)
 import Data.ByteString.Lazy (readFile)
 import Data.Text (Text)
 
+import Control.Concurrent
+import Control.Monad (forever)
+import Control.Concurrent.Chan
+import Control.Concurrent.Async
+
 import Haskify
 
 
@@ -15,13 +20,15 @@ main :: IO ()
 main = do
   args <- getArgs
 
+  chan <- newChan
+  forkIO $ writer chan
+
   case args of
-    [cred,file] -> do
-      (x,log) <- runHaskifyM cred (script file)
+    [cred] -> do
+      (x,_) <- runHaskifyM cred (script chan)
       case x of
         Left err -> do
           putStrLn $ show err
-          putStrLn $ show log
           exitFailure
         Right response -> do
           -- sequence $ map out response
@@ -30,21 +37,27 @@ main = do
     _ -> showUsage >> exitSuccess
 
 
-script :: FilePath -> HaskifyM [(Text, Text, Text, IDNumber, IDNumber)]
-script file = do
+writer :: Chan String -> IO ()
+writer chan = do
+  forever $ do
+    gossip <- readChan chan
+    putStr gossip
+
+
+script :: (Chan String) -> HaskifyM [(Text, Text, Text, IDNumber, IDNumber)]
+script chan = do
   ids <- getAllProductIDs
-  fmap concat $ sequence $ map (getVariantInfo file) ids
+  fmap concat $ sequence $ map (getVariantInfo chan) ids
 
 
 getAllProductIDs :: HaskifyM [(IDNumber, Text)]
 getAllProductIDs = do
   n <- getProductsCount
-  let k = (div n 100) + (if rem n 100 > 0 then 1 else 0)
+  let k = (div n 50) + (if rem n 50 > 0 then 1 else 0)
   let
     getPage t = do
       getProducts
-        ( optLimit 100
-        . optPage t
+        ( optPage t
         )
   ps <- fmap concat $ sequence $ map getPage [1..k]
   let
@@ -58,15 +71,14 @@ getAllProductIDs = do
 -- Gets a list of all variants of a given product,
 -- returning only title, sku, and ID
 getVariantInfo
-  :: FilePath -> (IDNumber, Text) -> HaskifyM [(Text, Text, Text, IDNumber, IDNumber)]
-getVariantInfo file (pid, ptitle) = do
+  :: (Chan String) -> (IDNumber, Text) -> HaskifyM [(Text, Text, Text, IDNumber, IDNumber)]
+getVariantInfo chan (pid, ptitle) = do
   n <- getProductsIDVariantsCount pid
-  let k = (div n 100) + (if rem n 100 > 0 then 1 else 0)
+  let k = (div n 50) + (if rem n 50 > 0 then 1 else 0)
   let
     getPage t = do
       getProductsIDVariants pid
-        ( optLimit 100
-        . optPage t
+        ( optPage t
         )
   ps <- fmap concat $ sequence $ map getPage [1..k]
   let
@@ -74,32 +86,26 @@ getVariantInfo file (pid, ptitle) = do
       x <- theTitle p
       s <- theSKU p
       m <- theID p
-      liftIO $ out file (ptitle, x, s, pid, m)
+      liftIO $ out chan (ptitle, x, s, pid, m)
       return (ptitle, x, s, pid, m)
   sequence $ map getInfo ps
 
 
-out :: FilePath -> (Text,Text,Text,IDNumber,IDNumber) -> IO ()
-out file (pname, name, sku, pnum, num) = do
-  appendFile file (show pname)
-  appendFile file "\t"
-  appendFile file (show name)
-  appendFile file "\t"
-  appendFile file (show sku)
-  appendFile file "\t"
-  appendFile file (show pnum)
-  appendFile file "\t"
-  appendFile file (show num)
-  appendFile file "\n"
+out :: Chan String -> (Text,Text,Text,IDNumber,IDNumber) -> IO ()
+out chan (pname, name, sku, pnum, num) = do
+  writeChan chan $
+    (show pname) ++ "\t" ++ (show name) ++ "\t" ++
+    (show sku) ++ "\t" ++ (show pnum) ++ "\t" ++
+    (show num) ++ "\n"
 
 
 showUsage :: IO ()
 showUsage = do
-  putStrLn "shopify-post-product:"
-  putStrLn "  post one or more products to a given shopify.com shop."
-  putStrLn "USAGE: shopify-post-product CRED PROD ..."
+  putStrLn "shopify-get-skus:"
+  putStrLn "  get a list of all product skus from a given shopify.com shop."
+  putStrLn "USAGE: shopify-get-skus CRED"
   putStrLn "  CRED is the full path of a credentials file, formatted as"
   putStrLn "    (domain)\\n(api-key)\\n(password)"
-  putStrLn "  PROD is a text file containing a JSON-formatted product"
-  putStrLn "OUTPUT: a list of ID numbers and titles of the posted products."
+  putStrLn "OUTPUT:"
+  putStrLn "  stdout: a tab-separated list consisting of product name, variant name, SKU, product ID, and variant ID."
 

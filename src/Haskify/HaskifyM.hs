@@ -28,6 +28,7 @@ import Data.ByteString.Lazy (ByteString)
 import Control.Lens ((^.), set)
 import Network.HTTP.Types.Status (ok200, created201, accepted202)
 import Network.HTTP.Client (HttpException(..))
+import Control.Concurrent (threadDelay)
 
 import Haskify.ToURL
 
@@ -59,6 +60,9 @@ instance Functor HaskifyM where
 
 instance MonadIO HaskifyM where
   liftIO x = HM { runHM = \st -> fmap (\y -> (Right y,st)) x }
+
+pause :: Int -> HaskifyM ()
+pause m = liftIO $ threadDelay m
 
 
 
@@ -116,6 +120,7 @@ type Log = [LogEntry]
 data LogEntry
   = HTTPRequest  HTTPVerb Text ByteString
   | HTTPResponse (Response ByteString)
+  | HTTPErrorL   HttpException
   | Comment      Text
   deriving Show
 
@@ -125,7 +130,7 @@ data HTTPVerb
 
 logComment :: Text -> HaskifyM ()
 logComment msg = do
-  liftIO $ putStrLn $ unpack msg
+  liftIO $ hPutStrLn stderr $ unpack msg
   (cred, log) <- getState
   putState $ (cred, (Comment msg):log)
 
@@ -141,8 +146,15 @@ logRequest verb url payload = do
 logResponse :: Response ByteString -> HaskifyM ()
 logResponse resp = do
   (cred, log) <- getState
-  liftIO $ hPutStrLn stderr (show resp)
+  liftIO $ hPutStrLn stderr ("HTTPResponse " ++ show resp)
   putState $ (cred, (HTTPResponse resp):log)
+
+-- DO NOT EXPORT
+logError :: HttpException -> HaskifyM ()
+logError err = do
+  (cred, log) <- getState
+  liftIO $ hPutStrLn stderr ("HTTPError " ++ show err)
+  putState $ (cred, (HTTPErrorL err):log)
 
 
 
@@ -239,16 +251,17 @@ wreqOpts = set checkStatus (Just $ \_ _ _ -> Nothing) defaults
 getURL :: String -> HaskifyM (Response ByteString)
 getURL url = do
   logRequest GET (pack url) ""
-  let
-    attempt = do
-      x <- try $ getWith wreqOpts url
-      case x of
-        Left (FailedConnectionException _ _) -> attempt
-        Left err -> error $ show err
-        Right x -> return x
-  resp <- liftIO attempt
-  logResponse resp
-  return resp
+  x <- liftIO $ try $ getWith wreqOpts url
+  case x of
+    Left err@(FailedConnectionException _ _) -> do
+      logError err
+      pause 200 >> getURL url
+    Left err -> do
+      logError err
+      pause 500 >> getURL url
+    Right resp -> do
+      logResponse resp
+      return resp
 
 getURL' :: String -> HaskifyM (Response ByteString)
 getURL' url = do
