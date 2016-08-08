@@ -42,7 +42,7 @@ echo >> $OUT
 
 # ToURLArgs Instance
 echo "instance ToURLArgs" $1 "where" >> $OUT
-echo $1 | awk '{print "  toURLArgs " $1 "{..} = intercalate \",\" $ filter (/= \"\")"}' >> $OUT
+echo $1 | awk '{print "  toURLArgs " $1 "{..} = intercalate \"&amp;\" $ filter (/= \"\")"}' >> $OUT
 head -n +1 $SCHEMA | tr -d " " | awk -F':' '{print "    [ case " $1 " of"; print "        Nothing -> \"\""; print "        Just x  -> Data.Text.concat [\"" $1 "=\", pack $ show x]"}' >> $OUT
 tail -n +2 $SCHEMA | tr -d " " | awk -F':' '{print "    , case " $1 " of"; print "        Nothing -> \"\""; print "        Just x  -> Data.Text.concat [\"" $1 "=\", pack $ show x]"}' >> $OUT
 echo "    ]" >> $OUT
